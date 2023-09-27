@@ -1,10 +1,13 @@
 package com.dewabrata.myapplication
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 class Login : AppCompatActivity() {
@@ -22,8 +25,13 @@ class Login : AppCompatActivity() {
 
         btnLogin.setOnClickListener(View.OnClickListener {
 
-            if(validation(txtUsername.text.toString(),txtPassword.text.toString())){
+            if(validation()){
                Toast.makeText(this,"Login Berhasil",Toast.LENGTH_SHORT).show()
+
+               intent =  Intent(this, MainMenu::class.java)
+               intent.putExtra("username",txtUsername.text.toString())
+               startActivity(intent)
+
             }else{
 
                 Toast.makeText(this,"Login Gagal",Toast.LENGTH_SHORT).show()
@@ -31,19 +39,26 @@ class Login : AppCompatActivity() {
 
         })
 
+        findViewById<TextView>(R.id.txtLostPassword).setOnClickListener(View.OnClickListener {
+
+            intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:08123456789"))
+            startActivity(intent)
+
+        })
+
 
     }
 
 
-    fun validation(username:String,password:String) : Boolean{
+    fun validation() : Boolean{
         val passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%^&*])[A-Za-z0-9!@#\$%^&*]{8,}\$".toRegex()
 
-        if (username.isEmpty()){
+        if (txtUsername.text.isBlank()){
             txtUsername.error = "Username tidak boleh kosong"
             return false
         }
 
-        if(!password.matches(passwordPattern)){
+        if(!txtPassword.text.matches(passwordPattern)){
             txtPassword.error = "Password harus mengandung huruf besar, angka, dan simbol"
             return false
         }
