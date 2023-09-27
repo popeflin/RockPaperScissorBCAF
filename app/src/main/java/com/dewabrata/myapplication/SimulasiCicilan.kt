@@ -2,6 +2,7 @@ package com.dewabrata.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.RadioGroup
@@ -11,6 +12,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.slider.Slider.OnChangeListener
+import java.text.DecimalFormat
 
 class SimulasiCicilan : AppCompatActivity() {
 
@@ -57,6 +59,7 @@ class SimulasiCicilan : AppCompatActivity() {
 
     fun hitungCicilan (view : View){
         val jumlahUang = (jmlUang.progress + 1 ) * 1000000
+        Log.d("Jumlah Uang" ,"" +jumlahUang)
         val tenor = grpTenor.checkedRadioButtonId
         var nilaiTenor = 0
 
@@ -68,8 +71,10 @@ class SimulasiCicilan : AppCompatActivity() {
 
         val selectedBunga = interestArray[lstInterest.selectedItemPosition]
 
-        val r = selectedBunga
-        var cicilan = jumlahUang * r / (1 - Math.pow((1+r),-tenor.toDouble()))
-        Toast.makeText(this,"Cicilanya adalah $cicilan",Toast.LENGTH_LONG).show()
+        val r = selectedBunga /12
+        var cicilan = jumlahUang * r / (1 - Math.pow((1+r),-nilaiTenor.toDouble()))
+
+        val formater = DecimalFormat("##.###")
+        findViewById<TextView>(R.id.txtCicilan).text = "Cicilannya adalah Rp ${formater.format(cicilan)}"
     }
 }

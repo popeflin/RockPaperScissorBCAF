@@ -133,6 +133,14 @@
             android:onClick="hitungCicilan"
             android:text="Hitung" />
     </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtCicilan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cicilannya adalah :"
+            android:textSize="24sp"
+            android:textStyle="bold" />
     </LinearLayout>
     </ScrollView>
 </LinearLayout>
