@@ -30,7 +30,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/txtUsername"
             style="@style/Widget.Material3.AutoCompleteTextView.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             android:outlineAmbientShadowColor="#151515" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/txtPassword"
             style="@style/Widget.Material3.AutoCompleteTextView.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
