@@ -36,10 +36,8 @@ class ListBerita : AppCompatActivity() {
         listBerita.adapter = BeritaAdapter(berita, object : OnItemBeritaClick {
             override fun onItemClick(berita: DataBerita) {
                 intent = Intent(this@ListBerita, BeritaDetail::class.java)
-                intent.putExtra("gambarBerita", berita.gambarBerita)
-                intent.putExtra("gambarUser", berita.gambarUser)
-                intent.putExtra("judulBerita", berita.judulBerita)
-                intent.putExtra("isiBerita", berita.isiBerita)
+                intent.putExtra("berita", berita)
+
                 startActivity(intent)
             }
         })
@@ -48,6 +46,18 @@ class ListBerita : AppCompatActivity() {
 
 
 
+
+    }
+
+    inner class X : OnItemBeritaClick{
+        override fun onItemClick(berita: DataBerita) {
+            intent = Intent(this@ListBerita, BeritaDetail::class.java)
+            intent.putExtra("gambarBerita", berita.gambarBerita)
+            intent.putExtra("gambarUser", berita.gambarUser)
+            intent.putExtra("judulBerita", berita.judulBerita)
+            intent.putExtra("isiBerita", berita.isiBerita)
+            startActivity(intent)
+        }
 
     }
 }

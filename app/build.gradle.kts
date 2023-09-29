@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -48,5 +50,8 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     //Glide Image
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+
+
 
 }
