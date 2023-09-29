@@ -13,8 +13,11 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ListBerita"
+            android:exported="false" />
+        <activity
             android:name=".SimulasiCicilan"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,9 +33,11 @@
             android:icon="@drawable/question_mark" />
         <activity
             android:name=".Login"
-            android:exported="true">
+            android:exported="true"></activity>
 
-        </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
