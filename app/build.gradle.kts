@@ -46,4 +46,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //recycleview
     implementation("androidx.recyclerview:recyclerview:1.2.1")
+    //Glide Image
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
 }
