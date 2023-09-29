@@ -1,10 +1,12 @@
 package com.dewabrata.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dewabrata.myapplication.adapter.BeritaAdapter
+import com.dewabrata.myapplication.adapter.OnItemBeritaClick
 import com.dewabrata.myapplication.model.DataBerita
 
 class ListBerita : AppCompatActivity() {
@@ -31,7 +33,16 @@ class ListBerita : AppCompatActivity() {
 
         val listBerita = findViewById<RecyclerView>(R.id.recycleBerita)
         listBerita.layoutManager = LinearLayoutManager(this)
-        listBerita.adapter = BeritaAdapter(berita)
+        listBerita.adapter = BeritaAdapter(berita, object : OnItemBeritaClick {
+            override fun onItemClick(berita: DataBerita) {
+                intent = Intent(this@ListBerita, BeritaDetail::class.java)
+                intent.putExtra("gambarBerita", berita.gambarBerita)
+                intent.putExtra("gambarUser", berita.gambarUser)
+                intent.putExtra("judulBerita", berita.judulBerita)
+                intent.putExtra("isiBerita", berita.isiBerita)
+                startActivity(intent)
+            }
+        })
 
 
 

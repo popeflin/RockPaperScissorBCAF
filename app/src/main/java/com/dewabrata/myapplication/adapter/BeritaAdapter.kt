@@ -3,6 +3,7 @@ package com.dewabrata.myapplication.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.dewabrata.myapplication.R
 import com.dewabrata.myapplication.model.DataBerita
 
-class BeritaAdapter (val berita : List<DataBerita>) : RecyclerView.Adapter<BeritaAdapter.BeritaViewHolder>(){
+class BeritaAdapter (val berita : List<DataBerita> , val listener : OnItemBeritaClick) : RecyclerView.Adapter<BeritaAdapter.BeritaViewHolder>(){
 
     inner class BeritaViewHolder(view:View) : RecyclerView.ViewHolder(view){
         //mapping Layout denga findViewById
@@ -36,6 +37,12 @@ class BeritaAdapter (val berita : List<DataBerita>) : RecyclerView.Adapter<Berit
         holder.gambarUser.setImageResource(berita[position].gambarUser)
         holder.judulBerita.text = berita[position].judulBerita
         holder.isiBerita.text = berita[position].isiBerita
+
+        holder.itemView.setOnClickListener(View.OnClickListener {
+            listener.onItemClick(berita[position])
+        })
+
+
     }
 
 
