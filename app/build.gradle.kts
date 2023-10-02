@@ -51,6 +51,10 @@ dependencies {
     //Glide Image
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
+    //Fragement
+    val fragment_version = "1.5.5"
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
+
 
 
 

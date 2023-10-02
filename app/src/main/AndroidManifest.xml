@@ -15,11 +15,8 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".BeritaDetail"
-            android:exported="false" />
-        <activity
-            android:name=".ListBerita"
-            android:exported="true">
+            android:name=".BelajarFragment"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,8 +24,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".BeritaDetail"
+            android:exported="false" />
+        <activity
+            android:name=".ListBerita"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".SimulasiCicilan"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainMenu"
             android:exported="false" />
